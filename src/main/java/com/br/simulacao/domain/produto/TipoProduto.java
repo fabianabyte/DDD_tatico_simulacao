@@ -1,12 +1,16 @@
-package com.br.simulacao.domain;
+package com.br.simulacao.domain.produto;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @Getter
+@ToString
+@RequiredArgsConstructor
 public enum TipoProduto {
     VEICULO("Veículo", 1),
     IMOVEL("Imóvel", 2),
-    EMPRESIMO("Empréstimo", 3);
+    EMPRESTIMO("Empréstimo", 3);
 
     private String descricao;
     private Integer id;

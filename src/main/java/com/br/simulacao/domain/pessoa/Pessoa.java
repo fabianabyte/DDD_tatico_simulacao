@@ -1,4 +1,4 @@
-package com.br.simulacao.domain;
+package com.br.simulacao.domain.pessoa;
 
 import lombok.*;
 
@@ -9,5 +9,5 @@ import lombok.*;
 @ToString
 public class Pessoa {
     private String nome;
-    private String endereco;
+    private Contato contato;
 }
