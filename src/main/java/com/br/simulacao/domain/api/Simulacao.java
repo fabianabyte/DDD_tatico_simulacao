@@ -1,7 +1,7 @@
-package com.br.simulacao.domain;
+package com.br.simulacao.domain.api;
 
-import com.br.simulacao.domain.pessoa.Pessoa;
-import com.br.simulacao.domain.produto.Produto;
+import com.br.simulacao.domain.api.pessoa.Pessoa;
+import com.br.simulacao.domain.api.produto.Produto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

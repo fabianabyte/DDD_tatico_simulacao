@@ -1,4 +1,4 @@
-package com.br.simulacao.domain.produto;
+package com.br.simulacao.domain.api.produto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
