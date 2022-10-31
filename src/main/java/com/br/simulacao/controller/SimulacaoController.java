@@ -7,6 +7,8 @@ import com.br.simulacao.domain.api.pessoa.Contato;
 import com.br.simulacao.domain.api.pessoa.Pessoa;
 import com.br.simulacao.domain.api.produto.Produto;
 import com.br.simulacao.domain.api.produto.TipoProduto;
+import com.br.simulacao.domain.mapper.SimulacaoMapper;
+import com.br.simulacao.factories.MapperFactory;
 import com.br.simulacao.repository.SimulacaoRepository;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
@@ -54,20 +56,11 @@ public class SimulacaoController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Simulacao>> getTodasSimulacoes(@RequestParam(required = false) String title) {
+    public ResponseEntity<List<Simulacao>> getTodasSimulacoes() {
         try {
             List<Simulacao> simulacoes = new ArrayList<>();
 
-            simulacaoRepository.findAll().stream().map(simulacaoEntity -> {
-                return Simulacao.builder()
-                        .taxaAnual(simulacaoEntity.getTaxaAnual())
-                        .taxaMensal(simulacaoEntity.getTaxaMensal())
-                        .quantidadePrestacoes(simulacaoEntity.getQuantidadePrestacoes())
-                        .valorPrestacao(simulacaoEntity.getValorPrestacao())
-                        .valorEntrada(simulacaoEntity.getValorEntrada())
-                        .valorTotalContrato(simulacaoEntity.getValorTotalContrato())
-                        .build();
-            }).collect(Collectors.toList());
+            simulacaoRepository.findAll().stream().map(simulacaoEntity -> MapperFactory.getSimulacaoMapper().simulacaoEntityParaSimulacao(simulacaoEntity)).collect(Collectors.toList());
 
             if (simulacoes.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -82,14 +75,7 @@ public class SimulacaoController {
     @PostMapping("/")
     public ResponseEntity<SimulacaoEntity> criarSimulacao(@RequestBody Simulacao simulacao) {
         try {
-            SimulacaoEntity _simulacao = simulacaoRepository.save(SimulacaoEntity.builder()
-                            .taxaMensal(simulacao.getTaxaMensal())
-                            .quantidadePrestacoes(simulacao.getQuantidadePrestacoes())
-                            .taxaAnual(simulacao.getTaxaAnual())
-                            .valorEntrada(simulacao.getValorEntrada())
-                            .valorPrestacao(simulacao.getValorPrestacao())
-                            .valorTotalContrato(simulacao.getValorTotalContrato())
-                    .build());
+            SimulacaoEntity _simulacao = simulacaoRepository.save(MapperFactory.getSimulacaoMapper().simulacaoParaSimulacaoEntity(simulacao));
             return new ResponseEntity<>(_simulacao, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
