@@ -1,7 +1,7 @@
 package com.br.simulacao.domain.mapper;
 
-import com.br.simulacao.domain.api.Simulacao;
-import com.br.simulacao.domain.entity.SimulacaoEntity;
+import com.br.simulacao.domain.model.api.Simulacao;
+import com.br.simulacao.domain.entidade.SimulacaoEntity;
 import org.mapstruct.Mapper;
 
 @Mapper

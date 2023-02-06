@@ -1,4 +1,4 @@
-package com.br.simulacao.domain.identificacao;
+package com.br.simulacao.utils.identificacao.domain.model;
 
 import java.text.DecimalFormat;
 

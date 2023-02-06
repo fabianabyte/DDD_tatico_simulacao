@@ -1,4 +1,4 @@
-package com.br.simulacao.domain.api.pessoa;
+package com.br.simulacao.domain.model.api.pessoa;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

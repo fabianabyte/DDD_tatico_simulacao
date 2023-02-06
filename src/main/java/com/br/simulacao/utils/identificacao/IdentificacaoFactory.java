@@ -1,9 +1,9 @@
-package com.br.simulacao.factories;
+package com.br.simulacao.utils.identificacao;
 
-import com.br.simulacao.domain.identificacao.Identificacao;
-import com.br.simulacao.domain.identificacao.IdentificacaoCNPJ;
-import com.br.simulacao.domain.identificacao.IdentificacaoCPF;
-import com.br.simulacao.domain.identificacao.TipoIdentificacao;
+import com.br.simulacao.utils.identificacao.domain.model.Identificacao;
+import com.br.simulacao.utils.identificacao.domain.model.IdentificacaoCNPJ;
+import com.br.simulacao.utils.identificacao.domain.model.IdentificacaoCPF;
+import com.br.simulacao.utils.identificacao.domain.model.TipoIdentificacao;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;

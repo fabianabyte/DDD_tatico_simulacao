@@ -1,6 +1,5 @@
-package com.br.simulacao.domain.api.pessoa;
+package com.br.simulacao.domain.model.api.pessoa;
 
-import com.br.simulacao.domain.identificacao.Identificacao;
 import lombok.*;
 
 @Getter

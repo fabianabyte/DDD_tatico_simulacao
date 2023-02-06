@@ -1,14 +1,13 @@
 package com.br.simulacao.controller;
 
 
-import com.br.simulacao.domain.api.Simulacao;
-import com.br.simulacao.domain.entity.SimulacaoEntity;
-import com.br.simulacao.domain.api.pessoa.Contato;
-import com.br.simulacao.domain.api.pessoa.Pessoa;
-import com.br.simulacao.domain.api.produto.Produto;
-import com.br.simulacao.domain.api.produto.TipoProduto;
-import com.br.simulacao.domain.mapper.SimulacaoMapper;
-import com.br.simulacao.factories.MapperFactory;
+import com.br.simulacao.domain.model.api.Simulacao;
+import com.br.simulacao.domain.entidade.SimulacaoEntity;
+import com.br.simulacao.domain.model.api.pessoa.Contato;
+import com.br.simulacao.domain.model.api.pessoa.Pessoa;
+import com.br.simulacao.domain.model.api.produto.Produto;
+import com.br.simulacao.domain.model.api.produto.TipoProduto;
+import com.br.simulacao.configuration.mapper.MapperConfig;
 import com.br.simulacao.repository.SimulacaoRepository;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
@@ -60,7 +59,7 @@ public class SimulacaoController {
         try {
             List<Simulacao> simulacoes = new ArrayList<>();
 
-            simulacaoRepository.findAll().stream().map(simulacaoEntity -> MapperFactory.getSimulacaoMapper().simulacaoEntityParaSimulacao(simulacaoEntity)).collect(Collectors.toList());
+            simulacaoRepository.findAll().stream().map(simulacaoEntity -> MapperConfig.getSimulacaoMapper().simulacaoEntityParaSimulacao(simulacaoEntity)).collect(Collectors.toList());
 
             if (simulacoes.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -75,7 +74,7 @@ public class SimulacaoController {
     @PostMapping("/")
     public ResponseEntity<SimulacaoEntity> criarSimulacao(@RequestBody Simulacao simulacao) {
         try {
-            SimulacaoEntity _simulacao = simulacaoRepository.save(MapperFactory.getSimulacaoMapper().simulacaoParaSimulacaoEntity(simulacao));
+            SimulacaoEntity _simulacao = simulacaoRepository.save(MapperConfig.getSimulacaoMapper().simulacaoParaSimulacaoEntity(simulacao));
             return new ResponseEntity<>(_simulacao, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

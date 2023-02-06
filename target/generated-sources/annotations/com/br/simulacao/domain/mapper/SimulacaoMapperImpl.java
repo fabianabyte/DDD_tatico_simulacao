@@ -1,14 +1,14 @@
 package com.br.simulacao.domain.mapper;
 
-import com.br.simulacao.domain.api.Simulacao;
-import com.br.simulacao.domain.api.Simulacao.SimulacaoBuilder;
-import com.br.simulacao.domain.entity.SimulacaoEntity;
-import com.br.simulacao.domain.entity.SimulacaoEntity.SimulacaoEntityBuilder;
+import com.br.simulacao.domain.entidade.SimulacaoEntity;
+import com.br.simulacao.domain.entidade.SimulacaoEntity.SimulacaoEntityBuilder;
+import com.br.simulacao.domain.model.api.Simulacao;
+import com.br.simulacao.domain.model.api.Simulacao.SimulacaoBuilder;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-30T20:56:40-0300",
+    date = "2023-02-06T16:09:27-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.16.1 (Azul Systems, Inc.)"
 )
 public class SimulacaoMapperImpl implements SimulacaoMapper {
