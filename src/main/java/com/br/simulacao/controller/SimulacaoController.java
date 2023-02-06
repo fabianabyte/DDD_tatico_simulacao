@@ -35,7 +35,7 @@ public class SimulacaoController {
                         .pessoa(Pessoa.builder()
                                 .nome("Fabiana")
                                 .contato(Contato.builder()
-                                        .celular("chama inbox ;)")
+                                        .telefone("chama inbox ;)")
                                         .logradouro("Melhor rua possivel")
                                         .email("fabianabyte@gmail.com")
                                         .build())
@@ -57,9 +57,7 @@ public class SimulacaoController {
     @GetMapping("/")
     public ResponseEntity<List<Simulacao>> getTodasSimulacoes() {
         try {
-            List<Simulacao> simulacoes = new ArrayList<>();
-
-            simulacaoRepository.findAll().stream().map(simulacaoEntity -> MapperConfig.getSimulacaoMapper().simulacaoEntityParaSimulacao(simulacaoEntity)).collect(Collectors.toList());
+            List<Simulacao> simulacoes = simulacaoRepository.findAll().stream().map(simulacaoEntity -> MapperConfig.getSimulacaoMapper().simulacaoEntityParaSimulacao(simulacaoEntity)).collect(Collectors.toList());
 
             if (simulacoes.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);

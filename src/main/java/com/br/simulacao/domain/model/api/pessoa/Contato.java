@@ -12,6 +12,6 @@ import lombok.Setter;
 public class Contato {
     private String logradouro;
     private String email;
-    private String celular;
+    private String telefone;
 
 }

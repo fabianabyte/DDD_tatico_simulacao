@@ -11,4 +11,5 @@ public class Pessoa {
     private String nome;
     private Contato contato;
     private String identificacao;
+    private TipoPessoa tipoPessoa;
 }

@@ -21,6 +21,14 @@ public class SimulacaoEntity {
     @Setter(AccessLevel.NONE)
     private UUID id;
 
+    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "pessoa_identificacao")
+    private PessoaEntity pessoa;
+
+    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "produto_id")
+    private ProdutoEntity produto;
+
     @Column(name = "valor_entrada")
     private Double valorEntrada;
 

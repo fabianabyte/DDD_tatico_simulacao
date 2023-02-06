@@ -9,7 +9,7 @@ public enum TipoIdentificacao {
     CNPJ("CNPJ", Integer.valueOf(14)),
     CPF("CPF", Integer.valueOf(11));
 
-    private String descricao;
+    private final String descricao;
     private Integer tamanho;
     private static HashMap<String, TipoIdentificacao> lookup;
 
