@@ -11,9 +11,9 @@ import org.mapstruct.ReportingPolicy;
 public interface SimulacaoMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Simulacao simulacaoEntityParaSimulacao(SimulacaoEntity simulacaoEntity);
+    Simulacao converterSimulacaoEntityEmSimulacao(SimulacaoEntity simulacaoEntity);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    SimulacaoEntity simulacaoParaSimulacaoEntity(Simulacao simulacao);
+    SimulacaoEntity converterSimulacaoEmSimulacaoEntity(Simulacao simulacao);
 
 }

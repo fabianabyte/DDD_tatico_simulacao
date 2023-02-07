@@ -7,10 +7,10 @@ import org.mapstruct.*;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface PessoaMapper {
 
-    PessoaEntity toPessoaFisicaEntity(Pessoa pessoa);
+    PessoaEntity converterPessoaEmPessoaEntity(Pessoa pessoa);
 
-    Pessoa toPessoaFisicaDto(PessoaEntity pessoaEntity);
+    Pessoa converterPessoaEntityEmPessoa(PessoaEntity pessoaEntity);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    PessoaEntity partialUpdate(Pessoa pessoa, @MappingTarget PessoaEntity pessoaEntity);
+    PessoaEntity atualizacaoParcial(Pessoa pessoa, @MappingTarget PessoaEntity pessoaEntity);
 }

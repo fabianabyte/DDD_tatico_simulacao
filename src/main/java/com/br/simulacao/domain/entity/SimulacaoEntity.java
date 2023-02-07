@@ -1,10 +1,8 @@
 package com.br.simulacao.domain.entity;
 
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name = "simulacao")
@@ -15,18 +13,16 @@ import java.util.UUID;
 @Builder
 public class SimulacaoEntity {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", columnDefinition = "VARCHAR(255)")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
-    private UUID id;
+    private int id;
 
     @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "pessoa_identificacao")
+    @JoinColumn(name = "pessoaIdentificacao")
     private PessoaEntity pessoa;
 
     @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "produto_id")
+    @JoinColumn(name = "produtoId")
     private ProdutoEntity produto;
 
     @Column(name = "valor_entrada")

@@ -22,14 +22,14 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-02-07T19:44:21-0300",
+    date = "2023-02-07T20:47:17-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.16.1 (Azul Systems, Inc.)"
 )
 @Component
 public class SimulacaoMapperImpl implements SimulacaoMapper {
 
     @Override
-    public Simulacao simulacaoEntityParaSimulacao(SimulacaoEntity simulacaoEntity) {
+    public Simulacao converterSimulacaoEntityEmSimulacao(SimulacaoEntity simulacaoEntity) {
         if ( simulacaoEntity == null ) {
             return null;
         }
@@ -49,7 +49,7 @@ public class SimulacaoMapperImpl implements SimulacaoMapper {
     }
 
     @Override
-    public SimulacaoEntity simulacaoParaSimulacaoEntity(Simulacao simulacao) {
+    public SimulacaoEntity converterSimulacaoEmSimulacaoEntity(Simulacao simulacao) {
         if ( simulacao == null ) {
             return null;
         }
