@@ -27,7 +27,7 @@ public class SimulacaoController {
             List<Simulacao> simulacoes = simulacaoService.obterTodasSimulacoes();
 
             if (simulacoes.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
 
             return new ResponseEntity<>(simulacoes, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class SimulacaoController {
             List<Simulacao> simulacoes = simulacaoService.obterSimulacoesPorPessoa(idPessoa);
 
             if (simulacoes.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
 
             return new ResponseEntity<>(simulacoes, HttpStatus.OK);
