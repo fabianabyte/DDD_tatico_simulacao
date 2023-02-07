@@ -19,7 +19,7 @@ public enum TipoIdentificacao {
     }
 
     private static HashMap<String, TipoIdentificacao> gerarLookUp() {
-        final HashMap<String, TipoIdentificacao> retorno = new HashMap<String, TipoIdentificacao>();
+        final HashMap<String, TipoIdentificacao> retorno = new HashMap<>();
         for (TipoIdentificacao tipoIdentificacao : values()) {
             retorno.put(tipoIdentificacao.getDescricao(), tipoIdentificacao);
         }

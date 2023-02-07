@@ -29,14 +29,14 @@ public class IdentificacaoCPF implements Identificacao{
         return this.identificacao.substring(9, 11);
     }
 
-    public void validar() throws Exception {
-        if (identificacao != null && identificacao != "") {
-            throw new Exception("Identifica\u00e7\u00e3o nula");
+    public void validar() throws IllegalArgumentException {
+        if (identificacao == null || !identificacao.equals("")) {
+            throw new IllegalArgumentException("Identifica\u00e7\u00e3o nula");
         }
-        final Byte digitoVerificador = new Byte(this.identificacao.substring(this.identificacao.length() - 2, this.identificacao.length()));
+        final Byte digitoVerificador = Byte.valueOf(this.identificacao.substring(this.identificacao.length() - 2, this.identificacao.length()));
         final Byte digitoCalculado = this.calcularDV();
         if (!digitoVerificador.equals(digitoCalculado)) {
-            throw new Exception("D\u00edgito verificador inv\u00e1lido");
+            throw new IllegalArgumentException("D\u00edgito verificador inv\u00e1lido");
         }
     }
 
@@ -78,7 +78,7 @@ public class IdentificacaoCPF implements Identificacao{
 
     public String getIdentificacaoFormatada() {
         final StringBuilder cpfFormatado = new StringBuilder(14);
-        if (this.identificacao != null && identificacao != "") {
+        if (this.identificacao != null && !identificacao.equals("")) {
             cpfFormatado.append(this.identificacao.substring(0, 3));
             cpfFormatado.append(".");
             cpfFormatado.append(this.identificacao.substring(3, 6));

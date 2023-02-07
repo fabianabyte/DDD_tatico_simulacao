@@ -4,6 +4,7 @@ import com.br.simulacao.domain.mapper.SimulacaoMapper;
 import org.mapstruct.factory.Mappers;
 
 public class MapperConfig {
+    private MapperConfig(){}
 
     public static <T> T factory(final Class<T> clazz){
         return Mappers.getMapper(clazz);

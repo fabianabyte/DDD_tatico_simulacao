@@ -17,9 +17,9 @@ public class IdentificacaoCNPJ implements Identificacao{
 
     public IdentificacaoCNPJ(final String id) {
         this.formatador = new DecimalFormat("00000000000000");
-        this.identificacao = id.trim();
-        if (id != null && id != "") {
-            this.identificacao = this.formatador.format(new Long(id));
+        if (id != null && !id.equals("")) {
+            this.identificacao = id.trim();
+            this.identificacao = this.formatador.format(Long.valueOf(id));
         }else {
             this.identificacao = null;
         }
@@ -30,27 +30,27 @@ public class IdentificacaoCNPJ implements Identificacao{
     }
 
     @Override
-    public void validar() throws Exception {
-        if (this.identificacao != null && identificacao != "") {
-            throw new Exception("Identifica\u00e7\u00e3o nula");
+    public void validar() throws IllegalArgumentException {
+        if (this.identificacao != null && !identificacao.equals("")) {
+            throw new IllegalArgumentException("Identifica\u00e7\u00e3o nula");
         }
         final String cnpj = getIdentificacao();
         if (cnpj.length() < 7) {
-            throw new Exception("Identifica\u00e7\u00e3o de tamanho inv\u00e1lido");
+            throw new IllegalArgumentException("Identifica\u00e7\u00e3o de tamanho inv\u00e1lido");
         }
         final int tam = cnpj.length();
         final Byte digito = Byte.parseByte(cnpj.substring(tam - 2));
         final Short filial = Short.parseShort(cnpj.substring(tam - 6, tam - 2));
         final Integer base = Integer.parseInt(cnpj.substring(0, tam - 6));
         if (!digito.equals(calcularDV(base, filial))) {
-            throw new Exception("Identifica\u00e7\u00e3o Inv\u00e1lida");
+            throw new IllegalArgumentException("Identifica\u00e7\u00e3o Inv\u00e1lida");
         }
     }
 
 
     @Override
     public Byte calcularDV() {
-        return calcularDV(new Integer(this.getNucleo()), new Short(this.getFilial()));
+        return calcularDV(Integer.valueOf(this.getNucleo()), Short.valueOf(this.getFilial()));
     }
 
     public static Byte calcularDV(final Integer entradaBase, final Short entradaFilial) {
@@ -61,7 +61,7 @@ public class IdentificacaoCNPJ implements Identificacao{
             filialLen = entradaFilial.toString().length();
         }
         if (baseLen < 1 || baseLen > 8 || filialLen < 1 || filialLen > 4) {
-            return new Byte((byte)(-1));
+            return Byte.valueOf((byte) -1);
         }
         final String numeroBase = formatarBase(entradaBase);
         final String numeroFilial = formatarFilial(entradaFilial);
@@ -83,7 +83,7 @@ public class IdentificacaoCNPJ implements Identificacao{
         if (d2 > 9) {
             d2 = 0;
         }
-        return new Byte((byte)(d1 * 10 + d2));
+        return Byte.valueOf((byte)(d1 * 10 + d2));
     }
 
     public String getDV() {

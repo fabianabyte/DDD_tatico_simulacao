@@ -3,7 +3,6 @@ package com.br.simulacao.domain.entidade;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "pessoa")

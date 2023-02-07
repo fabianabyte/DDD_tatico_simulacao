@@ -1,13 +1,13 @@
 package com.br.simulacao.controller;
 
 
-import com.br.simulacao.domain.model.api.Simulacao;
+import com.br.simulacao.configuration.mapper.MapperConfig;
 import com.br.simulacao.domain.entidade.SimulacaoEntity;
+import com.br.simulacao.domain.model.api.Simulacao;
 import com.br.simulacao.domain.model.api.pessoa.Contato;
 import com.br.simulacao.domain.model.api.pessoa.Pessoa;
 import com.br.simulacao.domain.model.api.produto.Produto;
 import com.br.simulacao.domain.model.api.produto.TipoProduto;
-import com.br.simulacao.configuration.mapper.MapperConfig;
 import com.br.simulacao.repository.SimulacaoRepository;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,17 +64,17 @@ public class SimulacaoController {
 
             return new ResponseEntity<>(simulacoes, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping("/")
     public ResponseEntity<SimulacaoEntity> criarSimulacao(@RequestBody Simulacao simulacao) {
         try {
-            SimulacaoEntity _simulacao = simulacaoRepository.save(MapperConfig.getSimulacaoMapper().simulacaoParaSimulacaoEntity(simulacao));
-            return new ResponseEntity<>(_simulacao, HttpStatus.CREATED);
+            SimulacaoEntity simulacaoEntity = simulacaoRepository.save(MapperConfig.getSimulacaoMapper().simulacaoParaSimulacaoEntity(simulacao));
+            return new ResponseEntity<>(simulacaoEntity, HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
