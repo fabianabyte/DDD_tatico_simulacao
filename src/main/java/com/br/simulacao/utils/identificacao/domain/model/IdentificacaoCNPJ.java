@@ -47,13 +47,12 @@ public class IdentificacaoCNPJ implements Identificacao{
         }
     }
 
-
     @Override
     public Byte calcularDV() {
         return calcularDV(Integer.valueOf(this.getNucleo()), Short.valueOf(this.getFilial()));
     }
 
-    public static Byte calcularDV(final Integer entradaBase, final Short entradaFilial) {
+    public Byte calcularDV(final Integer entradaBase, final Short entradaFilial) {
         int baseLen = 0;
         int filialLen = 0;
         if (entradaBase != null && entradaFilial != null) {
@@ -117,17 +116,15 @@ public class IdentificacaoCNPJ implements Identificacao{
 
     @Override
     public String getIdentificacaoFormatada() {
-        final StringBuilder cnpjFormatado = new StringBuilder(14);
-        cnpjFormatado.append(this.identificacao.substring(0, 2));
-        cnpjFormatado.append(".");
-        cnpjFormatado.append(this.identificacao.substring(2, 5));
-        cnpjFormatado.append(".");
-        cnpjFormatado.append(this.identificacao.substring(5, 8));
-        cnpjFormatado.append("/");
-        cnpjFormatado.append(this.identificacao.substring(8, 12));
-        cnpjFormatado.append("-");
-        cnpjFormatado.append(this.identificacao.substring(12, this.identificacao.length()));
-        return cnpjFormatado.toString();
+        return this.identificacao.substring(0, 2) +
+                "." +
+                this.identificacao.substring(2, 5) +
+                "." +
+                this.identificacao.substring(5, 8) +
+                "/" +
+                this.identificacao.substring(8, 12) +
+                "-" +
+                this.identificacao.substring(12);
     }
 
     static {

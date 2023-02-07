@@ -1,6 +1,6 @@
 package com.br.simulacao.domain.mapper;
 
-import com.br.simulacao.domain.entidade.PessoaEntity;
+import com.br.simulacao.domain.entity.PessoaEntity;
 import com.br.simulacao.domain.model.api.pessoa.Pessoa;
 import org.mapstruct.*;
 

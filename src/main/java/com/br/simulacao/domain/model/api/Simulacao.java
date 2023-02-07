@@ -2,12 +2,12 @@ package com.br.simulacao.domain.model.api;
 
 import com.br.simulacao.domain.model.api.pessoa.Pessoa;
 import com.br.simulacao.domain.model.api.produto.Produto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Simulacao {
     private Pessoa pessoa;

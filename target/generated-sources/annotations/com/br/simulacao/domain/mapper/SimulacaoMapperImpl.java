@@ -1,13 +1,13 @@
 package com.br.simulacao.domain.mapper;
 
-import com.br.simulacao.domain.entidade.ContatoEntity;
-import com.br.simulacao.domain.entidade.ContatoEntity.ContatoEntityBuilder;
-import com.br.simulacao.domain.entidade.PessoaEntity;
-import com.br.simulacao.domain.entidade.PessoaEntity.PessoaEntityBuilder;
-import com.br.simulacao.domain.entidade.ProdutoEntity;
-import com.br.simulacao.domain.entidade.ProdutoEntity.ProdutoEntityBuilder;
-import com.br.simulacao.domain.entidade.SimulacaoEntity;
-import com.br.simulacao.domain.entidade.SimulacaoEntity.SimulacaoEntityBuilder;
+import com.br.simulacao.domain.entity.ContatoEntity;
+import com.br.simulacao.domain.entity.ContatoEntity.ContatoEntityBuilder;
+import com.br.simulacao.domain.entity.PessoaEntity;
+import com.br.simulacao.domain.entity.PessoaEntity.PessoaEntityBuilder;
+import com.br.simulacao.domain.entity.ProdutoEntity;
+import com.br.simulacao.domain.entity.ProdutoEntity.ProdutoEntityBuilder;
+import com.br.simulacao.domain.entity.SimulacaoEntity;
+import com.br.simulacao.domain.entity.SimulacaoEntity.SimulacaoEntityBuilder;
 import com.br.simulacao.domain.model.api.Simulacao;
 import com.br.simulacao.domain.model.api.Simulacao.SimulacaoBuilder;
 import com.br.simulacao.domain.model.api.pessoa.Contato;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-02-06T23:20:40-0300",
+    date = "2023-02-07T19:44:21-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.16.1 (Azul Systems, Inc.)"
 )
 @Component

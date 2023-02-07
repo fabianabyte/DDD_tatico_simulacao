@@ -1,4 +1,4 @@
-package com.br.simulacao.domain.entidade;
+package com.br.simulacao.domain.entity;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
