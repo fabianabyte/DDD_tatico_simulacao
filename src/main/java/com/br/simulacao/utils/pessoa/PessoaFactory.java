@@ -3,7 +3,7 @@ package com.br.simulacao.utils.pessoa;
 import com.br.simulacao.domain.entidade.pessoa.PessoaEntidade;
 import com.br.simulacao.domain.model.api.pessoa.TipoPessoa;
 import com.br.simulacao.utils.identificacao.IdentificacaoFactory;
-import com.br.simulacao.utils.identificacao.domain.model.TipoIdentificacao;
+import com.br.simulacao.domain.model.identificacao.TipoIdentificacao;
 
 public class PessoaFactory {
     private PessoaFactory(){}

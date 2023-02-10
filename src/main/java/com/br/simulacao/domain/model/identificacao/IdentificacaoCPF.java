@@ -1,4 +1,4 @@
-package com.br.simulacao.utils.identificacao.domain.model;
+package com.br.simulacao.domain.model.identificacao;
 
 import java.text.DecimalFormat;
 
@@ -42,7 +42,7 @@ public class IdentificacaoCPF implements Identificacao{
     public static Byte calcularDV(final Long pNumeroBase) {
         final DecimalFormat formatadorBase = new DecimalFormat("000000000");
         final String numeroBase = formatadorBase.format(pNumeroBase);
-        int segundoDigito = 0;
+        int segundoDigito;
         int primeiroDigito = 0;
         for (int i = 0; i < 9; ++i) {
             primeiroDigito += (10 - i) * Character.getNumericValue(numeroBase.charAt(i));

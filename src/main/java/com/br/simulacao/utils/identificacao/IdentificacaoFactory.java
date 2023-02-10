@@ -1,9 +1,9 @@
 package com.br.simulacao.utils.identificacao;
 
-import com.br.simulacao.utils.identificacao.domain.model.Identificacao;
-import com.br.simulacao.utils.identificacao.domain.model.IdentificacaoCNPJ;
-import com.br.simulacao.utils.identificacao.domain.model.IdentificacaoCPF;
-import com.br.simulacao.utils.identificacao.domain.model.TipoIdentificacao;
+import com.br.simulacao.domain.model.identificacao.Identificacao;
+import com.br.simulacao.domain.model.identificacao.IdentificacaoCNPJ;
+import com.br.simulacao.domain.model.identificacao.IdentificacaoCPF;
+import com.br.simulacao.domain.model.identificacao.TipoIdentificacao;
 import org.slf4j.helpers.MessageFormatter;
 
 import java.util.EnumMap;

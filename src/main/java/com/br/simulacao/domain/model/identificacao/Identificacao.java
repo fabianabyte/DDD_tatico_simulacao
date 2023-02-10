@@ -1,4 +1,4 @@
-package com.br.simulacao.utils.identificacao.domain.model;
+package com.br.simulacao.domain.model.identificacao;
 
 public interface Identificacao {
     TipoIdentificacao getTipoIdentificacao();

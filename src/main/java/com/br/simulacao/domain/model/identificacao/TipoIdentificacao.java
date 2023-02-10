@@ -1,4 +1,4 @@
-package com.br.simulacao.utils.identificacao.domain.model;
+package com.br.simulacao.domain.model.identificacao;
 
 import lombok.Getter;
 
@@ -6,14 +6,14 @@ import java.util.HashMap;
 
 @Getter
 public enum TipoIdentificacao {
-    CNPJ("CNPJ", Integer.valueOf(14)),
-    CPF("CPF", Integer.valueOf(11));
+    CNPJ("CNPJ", 14),
+    CPF("CPF", 11);
 
     private final String descricao;
-    private Integer tamanho;
+    private final Integer tamanho;
     private static HashMap<String, TipoIdentificacao> lookup;
 
-    private TipoIdentificacao(final String descricao, final Integer tamanho) {
+    TipoIdentificacao(final String descricao, final Integer tamanho) {
         this.descricao = descricao;
         this.tamanho = tamanho;
     }

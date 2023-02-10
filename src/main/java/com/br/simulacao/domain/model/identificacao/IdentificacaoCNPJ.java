@@ -1,4 +1,4 @@
-package com.br.simulacao.utils.identificacao.domain.model;
+package com.br.simulacao.domain.model.identificacao;
 
 import lombok.Getter;
 
@@ -60,13 +60,13 @@ public class IdentificacaoCNPJ implements Identificacao{
             filialLen = entradaFilial.toString().length();
         }
         if (baseLen < 1 || baseLen > 8 || filialLen < 1 || filialLen > 4) {
-            return Byte.valueOf((byte) -1);
+            return ((byte) -1);
         }
         final String numeroBase = formatarBase(entradaBase);
         final String numeroFilial = formatarFilial(entradaFilial);
         final String c = numeroBase + numeroFilial;
         int d1 = 0;
-        int d2 = 0;
+        int d2;
         for (int i = 0; i < 12; ++i) {
             d1 += Character.getNumericValue(c.charAt(11 - i)) * (2 + i % 8);
         }
@@ -82,7 +82,7 @@ public class IdentificacaoCNPJ implements Identificacao{
         if (d2 > 9) {
             d2 = 0;
         }
-        return Byte.valueOf((byte)(d1 * 10 + d2));
+        return ((byte)(d1 * 10 + d2));
     }
 
     public String getDV() {
