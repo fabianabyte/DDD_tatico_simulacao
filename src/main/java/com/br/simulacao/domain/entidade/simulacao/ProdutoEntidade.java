@@ -17,7 +17,10 @@ public class ProdutoEntidade {
     @Setter(AccessLevel.NONE)
     private int id;
 
-    @Column(name = "descricao")
-    private String descricao;
+    @Column(name = "nomeProduto")
+    private String nomeProduto;
+
+    @Column(name = "tipoProduto")
+    private String tipoProduto;
 
 }
