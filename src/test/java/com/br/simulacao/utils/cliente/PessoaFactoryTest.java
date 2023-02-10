@@ -1,8 +1,6 @@
-package com.br.simulacao.utils.pessoa;
+package com.br.simulacao.utils.cliente;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PessoaFactoryTest {
 

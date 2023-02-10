@@ -8,25 +8,25 @@ import com.br.simulacao.domain.model.identificacao.TipoIdentificacao;
 public class PessoaFactory {
     private PessoaFactory(){}
 
-    public static PessoaEntidade gerarPessoaEntidade(String identificacao){
+    public static PessoaEntidade gerarPessoaPorIdentificacao(String identificacao){
         return PessoaEntidade.builder()
                 .tipoPessoa(IdentificacaoFactory.getIdentificacao(identificacao).getTipoIdentificacao().getDescricao())
                 .identificacao(identificacao)
                 .build();
     }
-    public static PessoaEntidade gerarPessoaFisicaEntidade(String identificacao){
+    public static PessoaEntidade gerarPessoaFisica(String identificacao){
         return PessoaEntidade.builder()
                 .tipoPessoa(TipoPessoa.CPF.getDescricao())
                 .identificacao(identificacao)
                 .build();
     }
-    public static PessoaEntidade gerarPessoaJuridicaEntidade(String identificacao){
+    public static PessoaEntidade gerarPessoaJuridica(String identificacao){
         return PessoaEntidade.builder()
                 .tipoPessoa(TipoPessoa.CNPJ.getDescricao())
                 .identificacao(identificacao)
                 .build();
     }
-    public static PessoaEntidade gerarPessoaEntidade(String identificacao, TipoIdentificacao tipoIdentificacao){
+    public static PessoaEntidade gerarPessoa(String identificacao, TipoIdentificacao tipoIdentificacao){
         return PessoaEntidade.builder()
                 .tipoPessoa(tipoIdentificacao.getDescricao())
                 .identificacao(identificacao)
