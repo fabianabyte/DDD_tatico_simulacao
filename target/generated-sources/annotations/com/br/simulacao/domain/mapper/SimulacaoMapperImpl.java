@@ -8,21 +8,22 @@ import com.br.simulacao.domain.entidade.simulacao.ProdutoEntidade;
 import com.br.simulacao.domain.entidade.simulacao.ProdutoEntidade.ProdutoEntidadeBuilder;
 import com.br.simulacao.domain.entidade.simulacao.SimulacaoEntidade;
 import com.br.simulacao.domain.entidade.simulacao.SimulacaoEntidade.SimulacaoEntidadeBuilder;
-import com.br.simulacao.domain.model.api.Simulacao;
-import com.br.simulacao.domain.model.api.Simulacao.SimulacaoBuilder;
 import com.br.simulacao.domain.model.api.pessoa.Contato;
 import com.br.simulacao.domain.model.api.pessoa.Contato.ContatoBuilder;
 import com.br.simulacao.domain.model.api.pessoa.Pessoa;
 import com.br.simulacao.domain.model.api.pessoa.Pessoa.PessoaBuilder;
 import com.br.simulacao.domain.model.api.pessoa.TipoPessoa;
-import com.br.simulacao.domain.model.api.produto.Produto;
-import com.br.simulacao.domain.model.api.produto.Produto.ProdutoBuilder;
+import com.br.simulacao.domain.model.api.simulacao.Produto;
+import com.br.simulacao.domain.model.api.simulacao.Produto.ProdutoBuilder;
+import com.br.simulacao.domain.model.api.simulacao.Simulacao;
+import com.br.simulacao.domain.model.api.simulacao.Simulacao.SimulacaoBuilder;
+import com.br.simulacao.domain.model.api.simulacao.TipoProduto;
 import javax.annotation.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-02-09T21:02:16-0300",
+    date = "2023-02-10T15:15:25-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.16.1 (Azul Systems, Inc.)"
 )
 @Component
@@ -106,6 +107,10 @@ public class SimulacaoMapperImpl implements SimulacaoMapper {
 
         ProdutoBuilder produto = Produto.builder();
 
+        if ( produtoEntidade.getTipoProduto() != null ) {
+            produto.tipoProduto( Enum.valueOf( TipoProduto.class, produtoEntidade.getTipoProduto() ) );
+        }
+
         return produto.build();
     }
 
@@ -146,6 +151,10 @@ public class SimulacaoMapperImpl implements SimulacaoMapper {
         }
 
         ProdutoEntidadeBuilder produtoEntidade = ProdutoEntidade.builder();
+
+        if ( produto.getTipoProduto() != null ) {
+            produtoEntidade.tipoProduto( produto.getTipoProduto().name() );
+        }
 
         return produtoEntidade.build();
     }

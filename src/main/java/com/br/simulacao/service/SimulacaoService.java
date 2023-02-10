@@ -1,7 +1,7 @@
 package com.br.simulacao.service;
 
 import com.br.simulacao.configuration.mapper.MapperConfig;
-import com.br.simulacao.domain.model.api.Simulacao;
+import com.br.simulacao.domain.model.api.simulacao.Simulacao;
 import com.br.simulacao.repository.SimulacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

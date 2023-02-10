@@ -1,7 +1,7 @@
-package com.br.simulacao.domain.model.api;
+package com.br.simulacao.domain.model.api.simulacao;
 
 import com.br.simulacao.domain.model.api.pessoa.Pessoa;
-import com.br.simulacao.domain.model.api.produto.Produto;
+import com.br.simulacao.domain.model.api.simulacao.Produto;
 import lombok.*;
 
 @Getter

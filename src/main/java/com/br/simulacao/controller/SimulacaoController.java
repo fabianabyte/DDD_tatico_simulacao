@@ -1,7 +1,7 @@
 package com.br.simulacao.controller;
 
 
-import com.br.simulacao.domain.model.api.Simulacao;
+import com.br.simulacao.domain.model.api.simulacao.Simulacao;
 import com.br.simulacao.service.SimulacaoService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
