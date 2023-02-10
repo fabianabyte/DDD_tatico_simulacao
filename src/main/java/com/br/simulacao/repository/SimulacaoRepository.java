@@ -1,12 +1,11 @@
 package com.br.simulacao.repository;
 
-import com.br.simulacao.domain.entity.SimulacaoEntity;
+import com.br.simulacao.domain.entidade.simulacao.SimulacaoEntidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.UUID;
 
-public interface SimulacaoRepository extends JpaRepository<SimulacaoEntity, UUID> {
+public interface SimulacaoRepository extends JpaRepository<SimulacaoEntidade, Integer> {
 
-    List<SimulacaoEntity> findByPessoaIdentificacao(String idPessoa);
+    List<SimulacaoEntidade> findByPessoaIdentificacao(String idPessoa);
 }

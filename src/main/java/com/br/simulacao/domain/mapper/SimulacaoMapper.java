@@ -1,7 +1,7 @@
 package com.br.simulacao.domain.mapper;
 
 import com.br.simulacao.domain.model.api.Simulacao;
-import com.br.simulacao.domain.entity.SimulacaoEntity;
+import com.br.simulacao.domain.entidade.simulacao.SimulacaoEntidade;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValuePropertyMappingStrategy;
@@ -11,9 +11,9 @@ import org.mapstruct.ReportingPolicy;
 public interface SimulacaoMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Simulacao converterSimulacaoEntityEmSimulacao(SimulacaoEntity simulacaoEntity);
+    Simulacao converterSimulacaoEntityEmSimulacao(SimulacaoEntidade simulacaoEntidade);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    SimulacaoEntity converterSimulacaoEmSimulacaoEntity(Simulacao simulacao);
+    SimulacaoEntidade converterSimulacaoEmSimulacaoEntity(Simulacao simulacao);
 
 }

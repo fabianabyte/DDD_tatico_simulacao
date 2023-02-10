@@ -1,5 +1,6 @@
-package com.br.simulacao.domain.entity;
+package com.br.simulacao.domain.entidade.simulacao;
 
+import com.br.simulacao.domain.entidade.pessoa.PessoaEntidade;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,19 +12,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SimulacaoEntity {
+public class SimulacaoEntidade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
-    private int id;
+    private Integer id;
 
     @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "pessoaIdentificacao")
-    private PessoaEntity pessoa;
+    private PessoaEntidade pessoa;
 
     @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "produtoId")
-    private ProdutoEntity produto;
+    private ProdutoEntidade produto;
 
     @Column(name = "valor_entrada")
     private Double valorEntrada;

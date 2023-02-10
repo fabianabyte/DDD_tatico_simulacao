@@ -1,13 +1,13 @@
 package com.br.simulacao.domain.mapper;
 
-import com.br.simulacao.domain.entity.ContatoEntity;
-import com.br.simulacao.domain.entity.ContatoEntity.ContatoEntityBuilder;
-import com.br.simulacao.domain.entity.PessoaEntity;
-import com.br.simulacao.domain.entity.PessoaEntity.PessoaEntityBuilder;
-import com.br.simulacao.domain.entity.ProdutoEntity;
-import com.br.simulacao.domain.entity.ProdutoEntity.ProdutoEntityBuilder;
-import com.br.simulacao.domain.entity.SimulacaoEntity;
-import com.br.simulacao.domain.entity.SimulacaoEntity.SimulacaoEntityBuilder;
+import com.br.simulacao.domain.entidade.pessoa.ContatoEntidade;
+import com.br.simulacao.domain.entidade.pessoa.ContatoEntidade.ContatoEntidadeBuilder;
+import com.br.simulacao.domain.entidade.pessoa.PessoaEntidade;
+import com.br.simulacao.domain.entidade.pessoa.PessoaEntidade.PessoaEntidadeBuilder;
+import com.br.simulacao.domain.entidade.simulacao.ProdutoEntidade;
+import com.br.simulacao.domain.entidade.simulacao.ProdutoEntidade.ProdutoEntidadeBuilder;
+import com.br.simulacao.domain.entidade.simulacao.SimulacaoEntidade;
+import com.br.simulacao.domain.entidade.simulacao.SimulacaoEntidade.SimulacaoEntidadeBuilder;
 import com.br.simulacao.domain.model.api.Simulacao;
 import com.br.simulacao.domain.model.api.Simulacao.SimulacaoBuilder;
 import com.br.simulacao.domain.model.api.pessoa.Contato;
@@ -22,85 +22,85 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-02-07T20:47:17-0300",
+    date = "2023-02-09T21:02:16-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.16.1 (Azul Systems, Inc.)"
 )
 @Component
 public class SimulacaoMapperImpl implements SimulacaoMapper {
 
     @Override
-    public Simulacao converterSimulacaoEntityEmSimulacao(SimulacaoEntity simulacaoEntity) {
-        if ( simulacaoEntity == null ) {
+    public Simulacao converterSimulacaoEntityEmSimulacao(SimulacaoEntidade simulacaoEntidade) {
+        if ( simulacaoEntidade == null ) {
             return null;
         }
 
         SimulacaoBuilder simulacao = Simulacao.builder();
 
-        simulacao.pessoa( pessoaEntityToPessoa( simulacaoEntity.getPessoa() ) );
-        simulacao.produto( produtoEntityToProduto( simulacaoEntity.getProduto() ) );
-        simulacao.valorEntrada( simulacaoEntity.getValorEntrada() );
-        simulacao.valorPrestacao( simulacaoEntity.getValorPrestacao() );
-        simulacao.quantidadePrestacoes( simulacaoEntity.getQuantidadePrestacoes() );
-        simulacao.valorTotalContrato( simulacaoEntity.getValorTotalContrato() );
-        simulacao.taxaMensal( simulacaoEntity.getTaxaMensal() );
-        simulacao.taxaAnual( simulacaoEntity.getTaxaAnual() );
+        simulacao.pessoa( pessoaEntidadeToPessoa( simulacaoEntidade.getPessoa() ) );
+        simulacao.produto( produtoEntidadeToProduto( simulacaoEntidade.getProduto() ) );
+        simulacao.valorEntrada( simulacaoEntidade.getValorEntrada() );
+        simulacao.valorPrestacao( simulacaoEntidade.getValorPrestacao() );
+        simulacao.quantidadePrestacoes( simulacaoEntidade.getQuantidadePrestacoes() );
+        simulacao.valorTotalContrato( simulacaoEntidade.getValorTotalContrato() );
+        simulacao.taxaMensal( simulacaoEntidade.getTaxaMensal() );
+        simulacao.taxaAnual( simulacaoEntidade.getTaxaAnual() );
 
         return simulacao.build();
     }
 
     @Override
-    public SimulacaoEntity converterSimulacaoEmSimulacaoEntity(Simulacao simulacao) {
+    public SimulacaoEntidade converterSimulacaoEmSimulacaoEntity(Simulacao simulacao) {
         if ( simulacao == null ) {
             return null;
         }
 
-        SimulacaoEntityBuilder simulacaoEntity = SimulacaoEntity.builder();
+        SimulacaoEntidadeBuilder simulacaoEntidade = SimulacaoEntidade.builder();
 
-        simulacaoEntity.pessoa( pessoaToPessoaEntity( simulacao.getPessoa() ) );
-        simulacaoEntity.produto( produtoToProdutoEntity( simulacao.getProduto() ) );
-        simulacaoEntity.valorEntrada( simulacao.getValorEntrada() );
-        simulacaoEntity.valorPrestacao( simulacao.getValorPrestacao() );
-        simulacaoEntity.quantidadePrestacoes( simulacao.getQuantidadePrestacoes() );
-        simulacaoEntity.valorTotalContrato( simulacao.getValorTotalContrato() );
-        simulacaoEntity.taxaMensal( simulacao.getTaxaMensal() );
-        simulacaoEntity.taxaAnual( simulacao.getTaxaAnual() );
+        simulacaoEntidade.pessoa( pessoaToPessoaEntidade( simulacao.getPessoa() ) );
+        simulacaoEntidade.produto( produtoToProdutoEntidade( simulacao.getProduto() ) );
+        simulacaoEntidade.valorEntrada( simulacao.getValorEntrada() );
+        simulacaoEntidade.valorPrestacao( simulacao.getValorPrestacao() );
+        simulacaoEntidade.quantidadePrestacoes( simulacao.getQuantidadePrestacoes() );
+        simulacaoEntidade.valorTotalContrato( simulacao.getValorTotalContrato() );
+        simulacaoEntidade.taxaMensal( simulacao.getTaxaMensal() );
+        simulacaoEntidade.taxaAnual( simulacao.getTaxaAnual() );
 
-        return simulacaoEntity.build();
+        return simulacaoEntidade.build();
     }
 
-    protected Contato contatoEntityToContato(ContatoEntity contatoEntity) {
-        if ( contatoEntity == null ) {
+    protected Contato contatoEntidadeToContato(ContatoEntidade contatoEntidade) {
+        if ( contatoEntidade == null ) {
             return null;
         }
 
         ContatoBuilder contato = Contato.builder();
 
-        contato.logradouro( contatoEntity.getLogradouro() );
-        contato.email( contatoEntity.getEmail() );
-        contato.telefone( contatoEntity.getTelefone() );
+        contato.logradouro( contatoEntidade.getLogradouro() );
+        contato.email( contatoEntidade.getEmail() );
+        contato.telefone( contatoEntidade.getTelefone() );
 
         return contato.build();
     }
 
-    protected Pessoa pessoaEntityToPessoa(PessoaEntity pessoaEntity) {
-        if ( pessoaEntity == null ) {
+    protected Pessoa pessoaEntidadeToPessoa(PessoaEntidade pessoaEntidade) {
+        if ( pessoaEntidade == null ) {
             return null;
         }
 
         PessoaBuilder pessoa = Pessoa.builder();
 
-        pessoa.nome( pessoaEntity.getNome() );
-        pessoa.contato( contatoEntityToContato( pessoaEntity.getContato() ) );
-        pessoa.identificacao( pessoaEntity.getIdentificacao() );
-        if ( pessoaEntity.getTipoPessoa() != null ) {
-            pessoa.tipoPessoa( Enum.valueOf( TipoPessoa.class, pessoaEntity.getTipoPessoa() ) );
+        pessoa.nome( pessoaEntidade.getNome() );
+        pessoa.contato( contatoEntidadeToContato( pessoaEntidade.getContato() ) );
+        pessoa.identificacao( pessoaEntidade.getIdentificacao() );
+        if ( pessoaEntidade.getTipoPessoa() != null ) {
+            pessoa.tipoPessoa( Enum.valueOf( TipoPessoa.class, pessoaEntidade.getTipoPessoa() ) );
         }
 
         return pessoa.build();
     }
 
-    protected Produto produtoEntityToProduto(ProdutoEntity produtoEntity) {
-        if ( produtoEntity == null ) {
+    protected Produto produtoEntidadeToProduto(ProdutoEntidade produtoEntidade) {
+        if ( produtoEntidade == null ) {
             return null;
         }
 
@@ -109,44 +109,44 @@ public class SimulacaoMapperImpl implements SimulacaoMapper {
         return produto.build();
     }
 
-    protected ContatoEntity contatoToContatoEntity(Contato contato) {
+    protected ContatoEntidade contatoToContatoEntidade(Contato contato) {
         if ( contato == null ) {
             return null;
         }
 
-        ContatoEntityBuilder contatoEntity = ContatoEntity.builder();
+        ContatoEntidadeBuilder contatoEntidade = ContatoEntidade.builder();
 
-        contatoEntity.telefone( contato.getTelefone() );
-        contatoEntity.email( contato.getEmail() );
-        contatoEntity.logradouro( contato.getLogradouro() );
+        contatoEntidade.telefone( contato.getTelefone() );
+        contatoEntidade.email( contato.getEmail() );
+        contatoEntidade.logradouro( contato.getLogradouro() );
 
-        return contatoEntity.build();
+        return contatoEntidade.build();
     }
 
-    protected PessoaEntity pessoaToPessoaEntity(Pessoa pessoa) {
+    protected PessoaEntidade pessoaToPessoaEntidade(Pessoa pessoa) {
         if ( pessoa == null ) {
             return null;
         }
 
-        PessoaEntityBuilder pessoaEntity = PessoaEntity.builder();
+        PessoaEntidadeBuilder pessoaEntidade = PessoaEntidade.builder();
 
-        pessoaEntity.identificacao( pessoa.getIdentificacao() );
-        pessoaEntity.contato( contatoToContatoEntity( pessoa.getContato() ) );
+        pessoaEntidade.identificacao( pessoa.getIdentificacao() );
+        pessoaEntidade.contato( contatoToContatoEntidade( pessoa.getContato() ) );
         if ( pessoa.getTipoPessoa() != null ) {
-            pessoaEntity.tipoPessoa( pessoa.getTipoPessoa().name() );
+            pessoaEntidade.tipoPessoa( pessoa.getTipoPessoa().name() );
         }
-        pessoaEntity.nome( pessoa.getNome() );
+        pessoaEntidade.nome( pessoa.getNome() );
 
-        return pessoaEntity.build();
+        return pessoaEntidade.build();
     }
 
-    protected ProdutoEntity produtoToProdutoEntity(Produto produto) {
+    protected ProdutoEntidade produtoToProdutoEntidade(Produto produto) {
         if ( produto == null ) {
             return null;
         }
 
-        ProdutoEntityBuilder produtoEntity = ProdutoEntity.builder();
+        ProdutoEntidadeBuilder produtoEntidade = ProdutoEntidade.builder();
 
-        return produtoEntity.build();
+        return produtoEntidade.build();
     }
 }

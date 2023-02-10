@@ -1,4 +1,4 @@
-package com.br.simulacao.domain.entity;
+package com.br.simulacao.domain.entidade.pessoa;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PessoaEntity {
+public class PessoaEntidade {
 
     @Id
     @Column(name = "identificacao")
@@ -20,7 +20,7 @@ public class PessoaEntity {
 
     @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "contato_id")
-    private ContatoEntity contato;
+    private ContatoEntidade contato;
 
     @Column(name = "tipo_pessoa")
     private String tipoPessoa;

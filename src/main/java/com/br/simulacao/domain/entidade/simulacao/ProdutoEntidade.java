@@ -1,4 +1,4 @@
-package com.br.simulacao.domain.entity;
+package com.br.simulacao.domain.entidade.simulacao;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProdutoEntity {
+public class ProdutoEntidade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
