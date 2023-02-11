@@ -1,5 +1,6 @@
 package com.br.simulacao.domain.entidade.simulacao;
 
+import com.br.simulacao.domain.entidade.EntidadeIdAb;
 import com.br.simulacao.domain.entidade.pessoa.PessoaEntidade;
 import lombok.*;
 
@@ -12,12 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SimulacaoEntidade {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Setter(AccessLevel.NONE)
-    private Integer id;
-
+public class SimulacaoEntidade extends EntidadeIdAb {
     @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "pessoaIdentificacao")
     private PessoaEntidade pessoa;

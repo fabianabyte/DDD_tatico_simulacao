@@ -1,5 +1,6 @@
 package com.br.simulacao.domain.entidade.pessoa;
 
+import com.br.simulacao.domain.entidade.EntidadeIdAb;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,12 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ContatoEntidade {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Setter(AccessLevel.NONE)
-    private Integer id;
-
+public class ContatoEntidade extends EntidadeIdAb {
     @Column(name = "telefone")
     private String telefone;
 
