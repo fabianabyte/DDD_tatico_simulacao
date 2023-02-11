@@ -1,8 +1,7 @@
-package com.br.simulacao.utils.cliente;
+package com.br.simulacao.utils.pessoa;
 
 import com.br.simulacao.domain.entidade.pessoa.PessoaEntidade;
 import com.br.simulacao.domain.model.identificacao.TipoIdentificacao;
-import com.br.simulacao.utils.pessoa.PessoaFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class PessoaFactoryTest {
 
-    private String identificacao = "12345678901234";
+    private final String identificacao = "12345678901234";
 
     @Test
     void gerarPessoaEntity() {
