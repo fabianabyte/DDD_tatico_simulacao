@@ -16,14 +16,14 @@ import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
-public class SpringFoxConfig {
+public class SpringFoxConfig /*extends WebMvcConfigurationSupport*/ {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Simulação API",
                 "Aplicando DDD em um projeto de simulação.",
                 "API 1.0",
                 "Terms of service",
-                new Contact("Fabiana Alencar", "www.example.com", "fabianabyte@gmail.com"),
+                new Contact("Fabiana Alencar, Agatha Melo", "https://github.com/fabianabyte/DDD_tatico_simulacao", "fabianabyte@gmail.com, ss.agatha@gmail.com"),
                 "License of API",
                 "API license URL",
                 Collections.emptyList());
